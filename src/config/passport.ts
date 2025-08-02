@@ -24,6 +24,10 @@ passport.use(
       done: VerifyCallback
     ) => {
       try {
+        console.log(`clientId:${process.env.GOOGLE_CLIENT_ID}`);
+        console.log(`clientSecret:${process.env.GOOGLE_CLIENT_SECRET}`);
+        console.log(`callbackURL:${process.env.GOOGLE_CALLBACK_URL}`);
+
         const email = profile.emails?.[0]?.value;
         if (!email) return done(new Error("Email not found in Google profile"));
 
@@ -41,6 +45,7 @@ passport.use(
         await newUser.save();
         done(null, newUser);
       } catch (err) {
+        console.log(`there is an error ${err}`);
         done(err as Error);
       }
     }

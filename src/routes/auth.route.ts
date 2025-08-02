@@ -17,6 +17,8 @@ authRouter.get(
   })
 );
 
+console.log(`Client url ${process.env.CLIENT_URL}`);
+
 // Google OAuth - Step 2: Google callback
 authRouter.get(
   "/google/callback",
