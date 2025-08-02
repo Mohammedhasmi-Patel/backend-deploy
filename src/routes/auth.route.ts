@@ -22,7 +22,7 @@ authRouter.get(
   "/google/callback",
   passport.authenticate("google", {
     failureRedirect: process.env.CLIENT_URL + "/login",
-    successRedirect: process.env.CLIENT_URL + "/",
+    successRedirect: process.env.CLIENT_URL + "/signup",
     session: true,
   })
 );
